@@ -1,0 +1,13 @@
+{
+  "sections": [
+    {
+      "name": "MultilingualismConfig.footer",
+      "prefix": "footer"
+    }
+  ],
+  "ignoredTranslationFiles":
+  [
+    "MultilingualismConfig.properties",
+    "Config.properties"
+  ]
+}

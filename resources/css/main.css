@@ -1,0 +1,9 @@
+.footer-column{
+    display:none !important;
+}
+
+@media (max-width:991px){
+    .owl-carousel .owl-dots{
+        display: none;
+    }
+}
