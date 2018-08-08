@@ -46,7 +46,13 @@ class TrendbereichServiceProvider extends ServiceProvider
 
         $dispatcher->listen('IO.tpl.item', function (TemplateContainer $container)
         {
-            $container->setTemplate('Trendbereich::Item.Item.SingleItemWrapper');
+            $container->setTemplate('Trendbereich::Item.SingleItemWrapper');
+            return false;
+        }, self::PRIORITY);
+
+        $dispatcher->listen('IO.tpl.category.content', function (TemplateContainer $container)
+        {
+            $container->setTemplate('Trendbereich::Category.Content.CategoryContent');
             return false;
         }, self::PRIORITY);
     }
