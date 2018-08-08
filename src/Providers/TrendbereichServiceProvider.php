@@ -38,8 +38,15 @@ class TrendbereichServiceProvider extends ServiceProvider
             $partial->set('page-design', 'Ceres::PageDesign.PageDesign');
             $partial->set('footer', 'Ceres::PageDesign.Partials.Footer');
 
+            $partial->set('header', 'Ceres::PageDesign.Partials.Header.Header');
             $partial->set('footer', 'Trendbereich::PageDesign.Partials.Footer');
 
+            return false;
+        }, self::PRIORITY);
+
+        $dispatcher->listen('IO.tpl.item', function (TemplateContainer $container)
+        {
+            $container->setTemplate('Trendbereich::Item.Item.SingleItemWrapper');
             return false;
         }, self::PRIORITY);
     }
