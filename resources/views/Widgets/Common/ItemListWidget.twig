@@ -58,13 +58,13 @@
         <div class="row clearfix">
             {{ Twig.if("itemList.documents is not empty") }}
                 <div>
-                    {% for item in itemList.documents[0] %}
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    {{ Twig.for(item, itemList.documents) }}
+                    {{ Twig.print("item | json_encode") }}
+                    {#<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                         <category-item :item-data="{{ Twig.print("item.data | json_encode") }}" decimal-count="{{ decimalCount }}" image-url-accessor="urlMiddle"></category-item>
-                    </div>
-                    {% endfor %}
+                    </div>#}
+                    {% Twig.endfor() %}
                 </div>
-                <container-item-list :items="{{ Twig.print("itemList.documents | json_encode") }}"></container-item-list>
             {{ Twig.endif() }}
         </div>
         {% endif %}
