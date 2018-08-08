@@ -38,7 +38,7 @@ class TrendbereichServiceProvider extends ServiceProvider
             $partial->set('page-design', 'Ceres::PageDesign.PageDesign');
             $partial->set('footer', 'Ceres::PageDesign.Partials.Footer');
 
-            $partial->set('header', 'Ceres::PageDesign.Partials.Header.Header');
+            $partial->set('header', 'Trendbereich::PageDesign.Partials.Header.Header');
             $partial->set('footer', 'Trendbereich::PageDesign.Partials.Footer');
 
             return false;
