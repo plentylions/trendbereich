@@ -1,6 +1,6 @@
 <?php
 
-namespace Ceres\Widgets\Helper;
+namespace Trendbereich\Widgets\Helper;
 
 use Plenty\Modules\ContentBuilder\Contracts\Widget;
 use Plenty\Plugin\Templates\Twig;
