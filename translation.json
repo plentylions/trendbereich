@@ -8,6 +8,7 @@
   "ignoredTranslationFiles":
   [
     "MultilingualismConfig.properties",
+    "Widget.properties",
     "Config.properties"
   ]
 }
