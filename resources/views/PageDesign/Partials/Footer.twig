@@ -1,5 +1,12 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
+{% if services.template.isCategory() == "1" %}
+<div class="page-content container-max">
+    {{ LayoutContainer.show("Ceres::CategoryItem.SideNavBarBottom") }}
+    <!-- SideNavBarBottom -->
+</div>
+{% endif %}
+
 {% set numberOfCols = config('Ceres.footer.number_of_cols') %}
 {% set colSize = (12 / (numberOfCols + 1)) %}
 {% set displayedCategories = [] %}
