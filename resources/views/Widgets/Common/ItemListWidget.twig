@@ -58,10 +58,10 @@
         <div class="row clearfix">
             {{ Twig.if("itemList.documents is not empty") }}
                 <div>
-                    {% set itemsCount = ( itemList.documents|length - 1 ) %}
-                    {{ itemsCount }}
-                    {% for i in 0..itemsCount %}
-                        {{ Twig.print("itemList.documents[i] | json_encode") }}
+                    {% for i in 0..20 %}
+                        {% if itemList.documents[i] is not empty %}
+                            {{ Twig.print("itemList.documents[i] | json_encode") }}
+                        {% endif %}
                     {% endfor %}
                     {# % for item in itemList.documents %}
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
