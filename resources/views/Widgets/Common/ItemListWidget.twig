@@ -61,8 +61,8 @@
                     {{ Twig.print("itemList.documents[0] | json_encode") }}
                     1111111111111111
                     {% for i in 0..20 %}
-                        {% if itemList.documents[i] is not empty %}
-                            ok
+                        {% if itemList.documents[i] %}
+                            {{ Twig.print("itemList.documents[i] | json_encode") }}
                         {% endif %}
                     {% endfor %}
                     {# % for item in itemList.documents %}
