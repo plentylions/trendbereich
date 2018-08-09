@@ -23,13 +23,5 @@
             "name"          :"Stylesheet",
             "description"   :"Add changes to the CSS file"
         }
-    ],
-    "containers"        :
-    [
-        {
-            "key"           : "CategoryList.After",
-            "name"          : "Template: CategoryList.After",
-            "description"   : "Add content after category list"
-        }
     ]
 }

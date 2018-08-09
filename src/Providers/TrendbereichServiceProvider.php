@@ -51,9 +51,9 @@ class TrendbereichServiceProvider extends ServiceProvider
             return false;
         }, self::PRIORITY);
 
-        $dispatcher->listen('IO.tpl.category.content', function (TemplateContainer $container)
+        $dispatcher->listen('IO.tpl.category.item', function (TemplateContainer $container)
         {
-            $container->setTemplate('Trendbereich::Category.Content.CategoryContent');
+            $container->setTemplate('Trendbereich::Category.Item.CategoryItem');
             return false;
         }, self::PRIORITY);
     }
