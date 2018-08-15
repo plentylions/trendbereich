@@ -182,34 +182,9 @@
     {% include scriptTemplate.path ignore missing with scriptTemplate.params %}
 {% endfor %}
 
+<script src="{{ plugin_path('Trendbereich') }}/js/script.js"></script>
+
 {{ LayoutContainer.show("Ceres::Script.AfterScriptsLoaded") }}
-
-<script>
-Vue.component("container-item-list-no-slide", {
-
-    delimiters: ["${", "}"],
-
-    props:
-    {
-        template:
-        {
-            type: String,
-            default: "#vue-container-item-list-no-slide"
-        },
-        items:
-        {
-            type: Array,
-            default: []
-        }
-    },
-
-    created()
-    {
-        this.$options.template = this.template;
-    },
-});
-
-</script>
 
 {{ get_filtered_tags() }}
 
