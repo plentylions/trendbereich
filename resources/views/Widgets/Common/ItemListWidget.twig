@@ -1,6 +1,4 @@
 {% import "Ceres::Widgets.Helper.TwigBuilder" as Twig %}
-{{ component( "Ceres::ItemList.Components.CategoryItem" ) }}
-{% set decimalCount = config("Ceres.item.storeSpecial") %}
 
 {% set listType = widget.settings.listType.mobile %}
 {% set itemSort = widget.settings.itemSort.mobile %}
@@ -58,18 +56,6 @@
         <div class="row clearfix">
             {{ Twig.if("itemList.documents is not empty") }}
                 <div>
-                    {#{{ Twig.print("itemList.documents[0] | json_encode") }}
-                    1111111111111111
-                    {% for i in 0..20 %}
-                        {% if itemList.documents[i] %}
-                            {{ Twig.print("itemList.documents[i] | json_encode") }}
-                        {% endif %}
-                    {% endfor %}
-                    {% for item in itemList.documents %}
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <category-item :item-data="{{ Twig.print("item.data | json_encode") }}" decimal-count="{{ decimalCount }}" image-url-accessor="urlMiddle"></category-item>
-                    </div>
-                    {% endfor % #}
                     {{ Twig.if("itemList.documents is not empty") }}
                         <container-item-list-no-slide :items="{{ Twig.print("itemList.documents | json_encode") }}"></container-item-list-no-slide>
                     {{ Twig.endif() }}
