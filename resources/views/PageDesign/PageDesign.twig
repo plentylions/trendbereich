@@ -7,7 +7,7 @@
 {{ component( "Ceres::Customer.Components.Registration" ) }}
 {{ component( "Ceres::Basket.Components.AddItemToBasketOverlay" ) }}
 {{ component( "Ceres::PageDesign.Components.Popper" ) }}
-{{ component( "Ceres::Containers.Components.ContainerItemList" ) }}
+{{ component( "Trendbereich::Containers.Components.ContainerItemList" ) }}
 {{ component( "Ceres::Containers.Components.LastSeenItemList" ) }}
 
 {% set currencyFormat = config("Ceres.currency.format") %}
@@ -183,6 +183,33 @@
 {% endfor %}
 
 {{ LayoutContainer.show("Ceres::Script.AfterScriptsLoaded") }}
+
+<script>
+Vue.component("container-item-list-no-slide", {
+
+    delimiters: ["${", "}"],
+
+    props:
+    {
+        template:
+        {
+            type: String,
+            default: "#vue-container-item-list-no-slide"
+        },
+        items:
+        {
+            type: Array,
+            default: []
+        }
+    },
+
+    created()
+    {
+        this.$options.template = this.template;
+    },
+});
+
+</script>
 
 {{ get_filtered_tags() }}
 
