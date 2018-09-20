@@ -1,0 +1,28 @@
+{% extends getPartial('page-design') %}
+
+{% block PartialHead %}
+    <title>{{ category.details[0].metaTitle }} | {{ trans("Ceres::Template.headerCompanyName") }}</title>
+
+    <meta name="description" content="{{ category.details[0].metaDescription }}">
+    <meta name="keywords" content="{{ category.details[0].metaKeywords }}">
+
+    <meta name="robots" content="{{ metaRobots }}">
+{% endblock %}
+
+{% block PageBody %}
+
+    <div class="container-max page-content">
+        <div class="row">
+            <div class="col-xs-12">
+                {% autoescape false %}
+                    <h1>{{ category.details[0].name }}</h1>
+                {% endautoescape %}
+
+                <hr class="m-y-3">
+
+                {% include category_template( category.id, lang, webstoreConfig.webstoreId ) ignore missing %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
