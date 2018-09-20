@@ -2,6 +2,12 @@
     display:none !important;
 }
 
+@media (min-width: 768px) {
+    .wrapper-main > nav.container-max {
+        position: static;
+    }
+}
+
 @media (max-width:991px){
     .owl-carousel .owl-dots{
         display: none;
