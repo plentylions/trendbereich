@@ -10,19 +10,29 @@
 {% endblock %}
 
 {% block PageBody %}
-
-    <div class="container-max page-content">
-        <div class="row">
-            <div class="col-xs-12">
-                {% autoescape false %}
-                    <h1>{{ category.details[0].name }}</h1>
-                {% endautoescape %}
-
-                <hr class="m-y-3">
-
-                {% include category_template( category.id, lang, webstoreConfig.webstoreId ) ignore missing %}
+    {% set shopBuilderTemplate = shop_builder_category_template(category.id) %}
+    {% if shopBuilderTemplate | trim is not empty %}
+        <div class="container-max">
+            <div class="row">
+                <div class="col">
+                    {{ shopBuilderTemplate | raw }}
+                </div>
             </div>
         </div>
-    </div>
+    {% else %}
+        <div class="container-max page-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    {% autoescape false %}
+                        <h1>{{ category.details[0].name }}</h1>
+                    {% endautoescape %}
+
+                    <hr class="m-y-3">
+
+                    {% include category_template( category.id, lang, webstoreConfig.webstoreId ) ignore missing %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
 
 {% endblock %}
