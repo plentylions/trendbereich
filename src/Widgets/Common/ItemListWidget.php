@@ -2,7 +2,7 @@
 
 namespace Trendbereich\Widgets\Common;
 
-use Trendbereich\Widgets\Helper\BaseWidget;
+use Ceres\Widgets\Helper\BaseWidget;
 
 class ItemListWidget extends BaseWidget
 {

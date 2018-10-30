@@ -25,19 +25,6 @@
 
                 <ul id="controlsList" class="controls-list list-inline">
 
-                    {#<li class="list-inline-item control-user">
-                        <user-login-handler>
-                            <a data-toggle="modal">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hidden-xs-down">{{ trans("Ceres::Template.login") }}</span>
-                            </a>
-                            <span class="pipe"></span>
-                            <a data-toggle="modal">
-                                <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                <span class="hidden-xs-down">{{ trans("Ceres::Template.loginRegister") }}</span>
-                            </a>
-                        </user-login-handler>
-                    </li>#}
                     <li class="list-inline-item dropdown control-languages">
                         <a data-toggle="collapse" href="#countrySettings" aria-expanded="false"
                             aria-controls="countrySettings"
@@ -103,56 +90,50 @@
     </div>
 </header>
 
-
 <!-- breadcrumb -->
 {% if not services.template.isHome() and not services.template.isMyAccount() and not services.template.isCheckout() %}
     {% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %}
 {% endif %}
 
-{% if category.linklist == "Y" %}
-    {% set initialCategory = { id: category.id } %}
-{% else %}
-    {% set initialCategory = category %}
-{% endif %}
-
-<mobile-navigation :navigation-tree-data="{{ categories | json_encode }}" :initial-category="{{ initialCategory | json_encode }}" template="#vue-mobile-navigation"></mobile-navigation>
-
 <div class="container-max page-header">
     <div class="row">
-        <div id="searchBox" class="cmp cmp-search-box collapse {% if services.template.isSearch() %} in {% endif %}">
+        <div id="searchBox" class="cmp cmp-search-box collapse">
             <item-search template="#vue-item-search"></item-search>
         </div>
 
         {% if enableCurrencySelect == "true" %}
-        <div id="currencySelect" class="cmp cmp-currency-select collapse">
-            <div class="container-max">
-                <div class="currency-select-inner row">
+            <div id="currencySelect" class="cmp cmp-currency-select collapse">
+                <div class="container-max">
+                    <div class="currency-select-inner row">
 
-                    <div class="currency-list col-xs-12">
-                        <div class="list-title">
-                            <strong>{{ trans("Ceres::Template.headerCurrency") }}</strong>
-                            <hr>
+                        <div class="currency-list col-xs-12">
+                            <div class="list-title">
+                                <strong>{{ trans("Ceres::Template.headerCurrency") }}</strong>
+                                <hr>
+                            </div>
+                            <ul>
+                                {% for currency in services.checkout.getCurrencyList() if currency.name in activeCurrencies or activeCurrencies[0] == 'all' or currency.name == services.checkout.getCurrencyData().name %}
+                                    <li{% if currency.name == services.checkout.getCurrencyData().name %} class="active"{% endif %}>
+                                        <a href="{{ queryString({"currency": currency.name}) }}" rel="nofollow">
+                                            {% if currencyFormatSelect == 'all' %}
+                                                {{ currency.name }} ({{ currency.symbol }})
+                                            {% else %}
+                                                {{ currency[currencyFormatSelect] }}
+                                            {% endif %}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </div>
-                        <ul>
-                            {% for currency in services.checkout.getCurrencyList() if currency.name in activeCurrencies or activeCurrencies[0] == 'all' or currency.name == services.checkout.getCurrencyData().name %}
-                            <li{% if currency.name == services.checkout.getCurrencyData().name %} class="active"{% endif %}>
-                                <a href="{{ queryString({"currency": currency.name}) }}" rel="nofollow">
-                                    {% if currencyFormatSelect == 'all' %}
-                                        {{ currency.name }} ({{ currency.symbol }})
-                                    {% else %}
-                                        {{ currency[currencyFormatSelect] }}
-                                    {% endif %}
-                                </a>
-                            </li>
-                            {% endfor %}
-                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
         {% endif %}
 
-        <shop-country-settings country-flag-prefix="flag-icon-" :localization-data="{{ services.localization.getLocalizationData() | json_encode }}">
+        <shop-country-settings
+                country-flag-prefix="flag-icon-"
+                :shipping-countries="{{ services.country.getActiveCountriesList() | filterFields(['id','currLangName', 'isoCode2', 'states.id', 'states.name']) | json_encode }}"
+                :shipping-country-id="{{ services.checkout.getShippingCountryId }}">
             <div id="countrySettings" class="row cmp cmp-country-settings no-margin collapse">
                 <div class="container-max">
                     <div class="row no-padding">
@@ -194,5 +175,20 @@
     </div>
 </div>
 {% else %}
-    {{ headerContainer | raw }}
+    <header id="page-header">
+        {{ headerContainer | raw }}
+    </header>
 {% endif %}
+
+<div>
+    {% if category.linklist == "Y" %}
+        {% set initialCategory = { id: category.id } %}
+    {% else %}
+        {% set initialCategory = category %}
+    {% endif %}
+    <mobile-navigation
+            :navigation-tree-data="{{ categories | json_encode }}"
+            :initial-category="{{ initialCategory | json_encode }}"
+            template="#vue-mobile-navigation">
+    </mobile-navigation>
+</div>
