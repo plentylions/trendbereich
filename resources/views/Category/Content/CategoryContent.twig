@@ -27,7 +27,7 @@
                     {% autoescape false %}
                         <h1>{{ category.details[0].name }}</h1>
                     {% endautoescape %}
-                    <hr class="m-y-3">
+                    <hr class="my-5">
                     {% include category_template( category.id, lang, webstoreConfig.webstoreId ) ignore missing %}
                 </div>
             </div>
