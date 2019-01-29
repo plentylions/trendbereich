@@ -1,14 +1,8 @@
 {
   "sections": [
-    {
-      "name": "MultilingualismConfig.footer",
-      "prefix": "footer"
-    }
   ],
   "ignoredTranslationFiles":
   [
-    "MultilingualismConfig.properties",
-    "Widget.properties",
-    "Config.properties"
+    "Widget.properties"
   ]
 }

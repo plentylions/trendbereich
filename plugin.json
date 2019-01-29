@@ -1,5 +1,5 @@
 {
-    "version"           :   "2.16.2",
+    "version"           :   "3.0.1",
     "license"           :   "AGPL-3.0",
     "name"              :   "Trendbereich",
     "marketplaceName"   :   {"de":"Trendbereich","en":"Trendbereich"},
@@ -15,13 +15,5 @@
     "categories"        :   [3518],
     "type"              :   "theme",
     "require"           :   ["Ceres"],
-    "serviceProvider"   :   "Trendbereich\\Providers\\TrendbereichServiceProvider",
-    "dataProviders"     :
-    [
-        {
-            "key"           :"Trendbereich\\Containers\\TrendbereichContainer",
-            "name"          :"Stylesheet",
-            "description"   :"Add changes to the CSS file"
-        }
-    ]
+    "serviceProvider"   :   "Trendbereich\\Providers\\TrendbereichServiceProvider"
 }
