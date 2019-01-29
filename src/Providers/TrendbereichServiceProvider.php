@@ -30,7 +30,7 @@ class TrendbereichServiceProvider extends ServiceProvider
     public function boot(Twig $twig, Dispatcher $dispatcher, ConfigRepository $config)
     {
         $dispatcher->listen('IO.Resources.Import', function (ResourceContainer $container) {
-            $container->addStyleTemplate('Sebson::Stylesheet');
+            $container->addStyleTemplate('Trendbereich::Stylesheet');
         }, self::PRIORITY);
 
         $dispatcher->listen('IO.tpl.category.content', function (TemplateContainer $container)
