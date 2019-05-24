@@ -16,6 +16,17 @@
     display:none !important;
 }
 
+.filter-properties-list{
+    font-size: 0.86rem;
+}
+.basket .item-additional-information-container .filter-properties-list{
+    display: block;
+}
+.basket .filter-properties-list,
+.basket-preview .filter-properties-list{
+    display: none;
+}
+
 @media (min-width: 768px) {
     .wrapper-main > nav.container-max {
         position: static;
