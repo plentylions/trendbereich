@@ -22,7 +22,6 @@
 .basket .item-additional-information-container .item-additional-information + .filter-properties-list{
     display: block;
 }
-.basket .filter-properties-list,
 .basket-preview .filter-properties-list{
     display: none;
 }
