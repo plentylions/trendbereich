@@ -19,7 +19,7 @@
 .filter-properties-list{
     font-size: 0.8rem;
 }
-.basket .item-additional-information-container .item-additional-information + .filter-properties-list{
+.basket .meta-container .filter-properties-list{
     display: block;
 }
 .basket .filter-properties-list,
