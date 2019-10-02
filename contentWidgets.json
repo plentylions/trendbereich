@@ -10,6 +10,15 @@
 		"position": 700,
 		"widgetClass": "Trendbereich\\Widgets\\Common\\ItemListWidget",
 		"settings": {
+			"customClass": {
+				"type": "text",
+				"required": false,
+				"defaultValue": "",
+				"options": {
+						"name": "Widget.customClass",
+						"tooltipText": "Widget.customClassTooltip"
+				}
+			},
 			"appearance": {
 				"type": "select",
 				"required": true,
@@ -104,6 +113,11 @@
 							"value": "manufacturer",
 							"caption": "Widget.itemListListTypeManufacturer",
 							"position": 3
+						},
+						{
+							"value": "cross_selling",
+							"caption": "Widget.itemListListTypeCrossSelling",
+							"position": 4
 						}
 					]
 				}

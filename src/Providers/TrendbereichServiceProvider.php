@@ -2,7 +2,6 @@
 
 namespace Trendbereich\Providers;
 
-use IO\Services\ContentCaching\Services\Container;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\Templates\Twig;
