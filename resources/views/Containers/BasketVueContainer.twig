@@ -2,8 +2,8 @@
   <div class="property-items">
       <template v-for="property in basketItem.variation.data.properties" v-if="property.property.isShownAtCheckout">
           <div class="property-item">
-              <strong>${ property.group.names.name }: </strong>
-              <span>${ property.property.names.name }</span>
+              <strong>${ property.group.names[0].name }: </strong>
+              <span>${ property.property.names[0].name }</span>
           </div>
       </template>
   </div>
