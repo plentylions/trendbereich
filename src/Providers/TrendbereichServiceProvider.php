@@ -30,7 +30,7 @@ class TrendbereichServiceProvider extends ServiceProvider
 
         $dispatcher->listen( 'IO.ResultFields.*', function(ResultFieldTemplate $container) {
             $container->setTemplates([
-                ResultFieldTemplate::TEMPLATE_BASKET_ITEM => 'Trendbereich::ResultFields.BasketItem' // properties.group.names.name, properties.property.names.name
+                ResultFieldTemplate::TEMPLATE_BASKET_ITEM => 'Trendbereich::ResultFields.BasketItem' // properties.property.names.name
             ]);
         }, self::PRIORITY);
 
