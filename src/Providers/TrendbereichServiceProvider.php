@@ -34,6 +34,8 @@ class TrendbereichServiceProvider extends ServiceProvider
         $dispatcher->listen('IO.Resources.Import', function (ResourceContainer $container) {
             $container->addStyleTemplate('Trendbereich::Stylesheet');
             $container->addScriptTemplate('Trendbereich::Script');
+
+            $container->addStyleTemplate('Trendbereich::Basket.Components.BasketListItem');
         }, self::PRIORITY);
 
         $dispatcher->listen( 'IO.ResultFields.*', function(ResultFieldTemplate $container) {

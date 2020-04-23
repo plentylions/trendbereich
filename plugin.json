@@ -15,14 +15,5 @@
     "categories"        :   [3518],
     "type"              :   "theme",
     "require"           :   ["Ceres"],
-    "serviceProvider"   :   "Trendbereich\\Providers\\TrendbereichServiceProvider",
-    "dataProviders":
-    [
-        {
-            "key": "Trendbereich\\Containers\\BasketVueContainer",
-            "name": "Trendbereich Basket Vue container",
-            "description": "Trendbereich Basket Vue container",
-            "defaultLayoutContainer": "Ceres::BasketList.AfterItem"
-        }
-    ]
+    "serviceProvider"   :   "Trendbereich\\Providers\\TrendbereichServiceProvider"
 }
