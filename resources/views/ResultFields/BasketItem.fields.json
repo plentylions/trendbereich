@@ -39,6 +39,7 @@
     "properties.property.surcharge",
     "properties.property.isOderProperty",
     "properties.property.valueType",
+    "properties.property.names.name",
     "properties.property.names*",
     "properties.group.names*",
     "properties.group.isSurchargePercental",
