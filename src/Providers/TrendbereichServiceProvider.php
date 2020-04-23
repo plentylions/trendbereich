@@ -10,6 +10,8 @@ use IO\Helper\TemplateContainer;
 use IO\Helper\ResourceContainer;
 use IO\Extensions\Functions\Partial;
 use Plenty\Plugin\ConfigRepository;
+use Plenty\Modules\ShopBuilder\Contracts\ContentWidgetRepositoryContract;
+use Trendbereich\Widgets\WidgetCollection;
 
 
 class TrendbereichServiceProvider extends ServiceProvider
@@ -23,6 +25,12 @@ class TrendbereichServiceProvider extends ServiceProvider
 
     public function boot(Twig $twig, Dispatcher $dispatcher, ConfigRepository $config)
     {
+        $widgetRepository = pluginApp(ContentWidgetRepositoryContract::class);
+        $widgetClasses = WidgetCollection::all();
+        foreach ($widgetClasses as $widgetClass) {
+            $widgetRepository->registerWidget($widgetClass);
+        }
+
         $dispatcher->listen('IO.Resources.Import', function (ResourceContainer $container) {
             $container->addStyleTemplate('Trendbereich::Stylesheet');
             $container->addScriptTemplate('Trendbereich::Script');
