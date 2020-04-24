@@ -12,7 +12,6 @@ use IO\Extensions\Functions\Partial;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Modules\ShopBuilder\Contracts\ContentWidgetRepositoryContract;
 use Trendbereich\Widgets\WidgetCollection;
-use Plenty\Modules\Webshop\ItemSearch\Helpers:ResultFieldTemplate 
 
 
 class TrendbereichServiceProvider extends ServiceProvider
