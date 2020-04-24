@@ -2,7 +2,7 @@
 
 namespace Trendbereich\Providers;
 
-use IO\Services\ItemSearch\Helper\ResultFieldTemplate;
+use Plenty\Modules\Webshop\ItemSearch\Helpers\ResultFieldTemplate;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\Templates\Twig;
@@ -12,6 +12,7 @@ use IO\Extensions\Functions\Partial;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Modules\ShopBuilder\Contracts\ContentWidgetRepositoryContract;
 use Trendbereich\Widgets\WidgetCollection;
+use Plenty\Modules\Webshop\ItemSearch\Helpers:ResultFieldTemplate 
 
 
 class TrendbereichServiceProvider extends ServiceProvider
@@ -38,11 +39,8 @@ class TrendbereichServiceProvider extends ServiceProvider
             $container->addStyleTemplate('Trendbereich::Basket.Components.BasketListItem');
         }, self::PRIORITY);
 
-        $dispatcher->listen( 'IO.ResultFields.*', function(ResultFieldTemplate $container) {
-            $container->setTemplates([
-                ResultFieldTemplate::TEMPLATE_BASKET_ITEM => 'Trendbereich::ResultFields.BasketItem' // properties.property.names.name
-            ]);
-        }, self::PRIORITY);
+        $resultFieldTemplate = pluginApp(ResultFieldTemplate::class);
+        $resultFieldTemplate->setTemplate(ResultFieldTemplate::TEMPLATE_BASKET_ITEM, 'Trendbereich::ResultFields.BasketItem'); // properties.property.names.name
 
         $dispatcher->listen('IO.tpl.category.content', function (TemplateContainer $container)
         {
