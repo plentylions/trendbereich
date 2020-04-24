@@ -2,7 +2,7 @@
 
 namespace Trendbereich\Widgets;
 
-use Ceres\Widgets\Common\ItemListWidget;
+use Trendbereich\Widgets\Common\ItemListWidget;
 
 class WidgetCollection
 {
