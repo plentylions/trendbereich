@@ -45,6 +45,7 @@
 .badge,
 .btn-primary,
 .page-item.active .page-link,
+.mobile-navigation,
 .control-basket .toggle-basket-preview,
 .controls-list .nav-link:hover,
 .main-navbar-collapsable .mainmenu>li:hover>a,
@@ -53,4 +54,41 @@
 }
 .megamenu .collapse{
     background-color: #fff !important;
+}
+
+.cmp-product-thumb .btn-primary{
+    background-color: transparent;
+    color: #ff8000 !important;
+}
+
+.cmp-product-thumb  .widget-primary .btn-appearance,
+.cmp-product-thumb  .btn-primary,
+.cmp-product-thumb  .btn-primary.disabled,
+.cmp-product-thumb  .btn-primary:disabled {
+    background-color: transparent;
+    color: #ff8000 !important;
+}
+.cmp-product-thumb .btn-primary:hover,
+.cmp-product-thumb .btn-primary:focus,
+.cmp-product-thumb .btn-primary.focus,
+.cmp-product-thumb .btn-primary:active,
+.cmp-product-thumb .btn-primary.active,
+.cmp-product-thumb .open > .btn-primary.dropdown-toggle,
+.cmp-product-thumb .btn-primary.disabled:hover,
+.cmp-product-thumb .btn-primary:disabled:hover,
+.cmp-product-thumb .btn-primary.disabled:focus,
+.cmp-product-thumb .btn-primary:disabled:focus,
+.cmp-product-thumb .btn-primary.disabled.focus,
+.cmp-product-thumb .btn-primary:disabled.focus,
+.cmp-product-thumb .btn-primary:active:hover,
+.cmp-product-thumb .btn-primary.active:hover,
+.cmp-product-thumb .open > .btn-primary.dropdown-toggle:hover,
+.cmp-product-thumb .btn-primary:active:focus,
+.cmp-product-thumb .btn-primary.active:focus,
+.cmp-product-thumb .open > .btn-primary.dropdown-toggle:focus,
+.cmp-product-thumb .btn-primary:active.focus,
+.cmp-product-thumb .btn-primary.active.focus,
+.cmp-product-thumb .open > .btn-primary.dropdown-toggle.focus {
+    background-color: #ff8000;
+    color: #fff !important;
 }
