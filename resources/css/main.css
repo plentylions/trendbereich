@@ -38,3 +38,19 @@
         display: none;
     }
 }
+
+.widget-primary .btn-appearance,
+.widget-primary .bg-appearance,
+.badge-primary,
+.badge,
+.btn-primary,
+.page-item.active .page-link,
+.control-basket .toggle-basket-preview,
+.controls-list .nav-link:hover,
+.main-navbar-collapsable .mainmenu>li:hover>a,
+.main-navbar-collapsable .mainmenu>li.hover>a{
+    color: #fff !important;
+}
+.megamenu .collapse{
+    background-color: #fff !important;
+}
