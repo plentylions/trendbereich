@@ -31,6 +31,17 @@ class TrendbereichServiceProvider extends ServiceProvider
             $widgetRepository->registerWidget($widgetClass);
         }
 
+        $dispatcher->listen('IO.init.templates', function (Partial $partial)
+        {
+            $partial->set('head', 'Ceres::PageDesign.Partials.Head');
+            $partial->set('header', 'Ceres::PageDesign.Partials.Header.Header');
+            $partial->set('page-design', 'Ceres::PageDesign.PageDesign');
+            $partial->set('footer', 'Ceres::PageDesign.Partials.Footer');
+            $partial->set('page-metadata', 'Ceres::PageDesign.Partials.PageMetadata');
+
+            $partial->set('page-design', 'Trendbereich::PageDesign.PageDesign');
+        }, self::PRIORITY);
+
         $dispatcher->listen('IO.Resources.Import', function (ResourceContainer $container) {
             $container->addStyleTemplate('Trendbereich::Stylesheet');
             $container->addScriptTemplate('Trendbereich::Script');
