@@ -22,6 +22,9 @@ class ItemListWidget extends BaseWidget
             ->withType(WidgetTypes::STATIC)
             ->withCategory(WidgetCategories::ITEM)
             ->withPosition(700)
+            ->withSearchKeyWords([
+                "artikel", "artikelliste", "article", "item", "list"
+            ])
             ->toArray();
     }
 
@@ -51,6 +54,7 @@ class ItemListWidget extends BaseWidget
             ->withTooltip('Widget.itemListListTypeTooltip')
             ->withListBoxValues(
                 ValueListFactory::make()
+                    ->addEntry('all', 'Widget.itemListListTypeAllItems')
                     ->addEntry('category', 'Widget.itemListListTypeCategory')
                     ->addEntry('last_seen', 'Widget.itemListListTypeLastseen')
                     ->addEntry('tag_list', 'Widget.itemListListTypeTaglist')
@@ -117,6 +121,25 @@ class ItemListWidget extends BaseWidget
                     ->addEntry(4, 'Widget.itemListItemsPerPage4')
                     ->toArray()
             );
+
+        $settings->createCheckbox('preloadImage')
+            ->withName('Widget.preloadImageLabel')
+            ->withTooltip('Widget.preloadImageTooltip')
+            ->withCondition('listType !== "last_seen" && listType !== "cross_selling"');
+
+        $settings->createSelect('maxPreload')
+            ->withName('Widget.maxPreloadLabel')
+            ->withTooltip('Widget.maxPreloadTooltip')
+            ->withDefaultValue(3)
+            ->withListBoxValues(
+                ValueListFactory::make()
+                    ->addEntry(1, 'Widget.itemListItemsPerPage1')
+                    ->addEntry(2, 'Widget.itemListItemsPerPage2')
+                    ->addEntry(3, 'Widget.itemListItemsPerPage3')
+                    ->addEntry(4, 'Widget.itemListItemsPerPage4')
+                    ->toArray()
+            )
+            ->withCondition("preloadImage");
 
         $settings->createSpacing();
 
